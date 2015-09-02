@@ -57,7 +57,6 @@
 						<p>Hookah is a small smoke testing command line library for any web application.</p>
 
 					<ul style="margin-top:50px">
-							<li class="fragment">Proof of concept to smoke test</li>
 							<li class="fragment">Open source project</li>
 							<li class="fragment"><a href="https://github.com/younginnovations/hookah">younginnovations/hookah</a> 	</li>
 
@@ -179,8 +178,8 @@
 
 				<section>					
 					<h3>Prerequisites</h3>
-					<p>PHPUnit and Goutte 2.x</p>
-					<p>Optional:  Paratest</p>
+					<p><a href="https://phpunit.de/">PHPUnit</a> and <a href="https://github.com/FriendsOfPHP/Goutte">Goutte</a> 2.x</p>
+					<p>Optional:  <a href="https://github.com/brianium/paratest">Paratest</a></p>
 				</section>
 
 				<section>
@@ -210,6 +209,10 @@
 					<p>Run tests faster</p>
 					<p>./vendor/bin/paratest -f --colors -m 2 -p 4 tests </p>
 
+				</section>
+
+				<section>
+					<img src="https://camo.githubusercontent.com/4272689597d19dbd030a9776af78332f40e7dc8a/68747470733a2f2f73332d61702d736f757468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732d61702e686970636861742e636f6d2f3134303236312f313334333037302f6b4c634331384e794235347957544f2f686f6f6b61682d6c61726176656c2d352e706e67">
 				</section>
 
 				<section>
@@ -309,6 +312,28 @@ Backend paths (AdminUserTest.php)
     ];
  </code></pre>   
 	
+</section>
+
+<section>
+
+<h3>Integration with Shippable CI</h3>
+	<pre>
+	<code>
+language: php
+
+php: 
+  - 5.6
+  
+before_script: 
+  - mkdir -p shippable/testresults
+
+script:
+  -./vendor/bin/phpunit --log-junit shippable/testresults/junit.xml
+
+notifications:
+   email: false
+	</code>
+</pre>
 </section>
 
 
